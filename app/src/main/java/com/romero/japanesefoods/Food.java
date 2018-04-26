@@ -8,12 +8,13 @@ public class Food {
     private String name;
     private String desc;
     private int image;
-    private boolean fav=false;
+    private boolean fav;
 
     public Food(String name, int image,String desc) {
         this.name = name;
         this.desc = desc;
         this.image = image;
+        fav=false;
     }
 
     public String getName() {

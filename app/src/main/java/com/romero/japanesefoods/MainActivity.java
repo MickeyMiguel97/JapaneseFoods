@@ -71,15 +71,17 @@ public class MainActivity extends AppCompatActivity {
     public void eraseFavourite(String name) {
         int counter=0;
         for (Food food : favs){
-            if (food.getName()==name){
+            if (food.getName()== name){
                 break;
             }
+
             counter++;
         }
+
         favs.remove(counter);
 
         if (adapter.isOnFavS()){
-            adapter=new FoodAdapter(favs,this);
+            adapter = new FoodAdapter(favs,this);
             recyclerV.setAdapter(adapter);
         }
     }

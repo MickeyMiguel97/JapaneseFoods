@@ -19,12 +19,27 @@ import java.util.ArrayList;
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder> {
 
     private ArrayList<Food> foods;
-    boolean isfav = false;
+    private static boolean fav = false;
     private Context context;
 
-    public FoodAdapter(ArrayList<Food> foods, Context context) {
+    public FoodAdapter(ArrayList<Food> foods, Context contex) {
         this.foods = foods;
-        this.context = context;
+        this.context = contex;
+    }
+
+    public class FoodViewHolder extends RecyclerView.ViewHolder {
+        CardView cardV;
+        TextView name;
+        ImageView image;
+        ImageButton favBtn;
+
+        public FoodViewHolder(View itemView) {
+            super(itemView);
+            cardV = itemView.findViewById(R.id.card_view);
+            name = itemView.findViewById(R.id.name);
+            image = itemView.findViewById(R.id.imgView);
+            favBtn = itemView.findViewById(R.id.favBtn);
+        }
     }
 
     @Override
@@ -47,14 +62,12 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         holder.favBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!foods.get(position).isFav()) {
-                    foods.get(position).setFav(true);
+                if (estafav(position)) {
                     holder.favBtn.setImageResource(R.drawable.likefull);
                     ((MainActivity) context).addFavourite(foods.get(position));
 
                 } else {
                     holder.favBtn.setImageResource(R.drawable.likeempty);
-                    foods.get(position).setFav(false);
                     ((MainActivity) context).eraseFavourite(foods.get(position).getName());
                 }
             }
@@ -63,31 +76,21 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
 
     @Override
     public int getItemCount() {
-        return 0;
+        return foods.size();
     }
 
-    public class FoodViewHolder extends RecyclerView.ViewHolder {
-        CardView cardV;
-        TextView name;
-        ImageView image;
-        ImageButton favBtn;
-
-        public FoodViewHolder(View itemView) {
-            super(itemView);
-            cardV = itemView.findViewById(R.id.card_view);
-            name = itemView.findViewById(R.id.name);
-            image = itemView.findViewById(R.id.imgView);
-            favBtn = itemView.findViewById(R.id.favBtn);
-        }
+    public boolean estafav(int position){
+        foods.get(position).setFav(!foods.get(position).isFav());
+        return foods.get(position).isFav();
     }
 
     public void setTrue() {
-        isfav = true;
+        fav = true;
     }
     public void setFalse() {
-        isfav = false;
+        fav = false;
     }
     public boolean isOnFavS() {
-        return isfav;
+        return fav;
     }
 }
