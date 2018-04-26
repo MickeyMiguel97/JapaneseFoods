@@ -1,5 +1,6 @@
 package com.romero.japanesefoods;
 
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         foods =new ArrayList<>();
         favs =new ArrayList<>();
@@ -41,17 +43,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void allFoodsBtn(View v){
         adapter.setFalse();
-        //btn1.setBackgroundColor(getResources().getColor(R.color.azul));
-        //btn2.setBackgroundColor(getResources().getColor(R.color.skyblue));
+        principalB.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+        favouritesB.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
         adapter = new FoodAdapter(foods,v.getContext());
         recyclerV.setAdapter(adapter);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
     public void favouritesBtn(View v){
         adapter.setTrue();
-        //btn2.setBackgroundColor(getResources().getColor(R.color.azul));
-        //btn1.setBackgroundColor(getResources().getColor(R.color.skyblue));
+        favouritesB.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+        principalB.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
         adapter = new FoodAdapter(favs,v.getContext());
         recyclerV.setAdapter(adapter);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
     private void fillFoods(){
@@ -83,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
         if (adapter.isOnFavS()){
             adapter = new FoodAdapter(favs,this);
             recyclerV.setAdapter(adapter);
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         }
     }
 }

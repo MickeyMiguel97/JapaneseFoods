@@ -15,6 +15,7 @@
         <Button
             android:id="@+id/foods"
             android:onClick="allFoodsBtn"
+            android:background="@color/colorAccent"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -24,6 +25,7 @@
             android:onClick="favouritesBtn"
             android:id="@+id/favourites"
             android:layout_width="0dp"
+            android:background="@color/colorPrimaryDark"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@string/favorites_name" />

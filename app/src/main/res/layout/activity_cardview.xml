@@ -15,7 +15,7 @@
         android:id="@+id/imgView"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="#616161"
+        android:background="#e1bee7"
         android:scaleType="fitCenter"
         android:src="@drawable/katsudon"/>
 
@@ -24,7 +24,7 @@
         android:layout_height="50dp"
         android:layout_gravity="bottom"
         android:gravity="center_vertical"
-        android:background="#d66a1b9a">
+        android:background="#6a1b9a">
 
         <TextView
             android:id="@+id/name"
@@ -45,7 +45,7 @@
             android:layout_height="50dp"
             android:src="@drawable/likeempty"
             android:scaleType="centerCrop"
-            android:background="#ffff"
+            android:background="#6a1b9a"
             />
     </LinearLayout>
 

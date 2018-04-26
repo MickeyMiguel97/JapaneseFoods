@@ -1,6 +1,7 @@
 package com.romero.japanesefoods;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
