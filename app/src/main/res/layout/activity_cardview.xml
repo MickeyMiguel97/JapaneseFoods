@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:id="@+id/card_view"
+    app:cardCornerRadius="4dp"
+    android:elevation="7dp"
+    app:cardUseCompatPadding="true"
+    android:background="#e57373"
+    >
+
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#616161"
+        android:scaleType="fitCenter"
+        android:src="@drawable/katsudon"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:gravity="center_vertical"
+        android:background="#d66a1b9a">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:fontFamily="casual"
+            android:layout_weight="1"
+            android:textColor="#e0e0e0"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center_vertical"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:text="@string/katsudon_name"/>
+
+        <ImageButton
+            android:id="@+id/favBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/likeempty"
+            android:scaleType="centerCrop"
+            android:background="#ffff"
+            android:onClick=""/>
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>
